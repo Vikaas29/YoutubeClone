@@ -1,0 +1,12 @@
+body{
+    background-color: black;
+    color: white;
+}
+
+.loading{
+    animation: rotation 2s linear infinite;
+}
+@keyframes rotation {
+    from {rotate: 0deg; }
+    to {rotate: 359deg;}
+}

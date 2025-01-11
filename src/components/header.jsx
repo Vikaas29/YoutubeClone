@@ -1,0 +1,101 @@
+import { useState } from "react";
+import { Navigation } from "./navigationMenu";
+import { VideoCardHolder } from "./videoCardHolder";
+import { Outlet } from 'react-router-dom';
+import { useDispatch } from "react-redux";
+import { changeState } from "../utils/NavBarSlice.js";
+import { changeFilterState } from "../utils/FilterSlice.js";
+
+export function Header(){
+    const dispatch=useDispatch();
+
+    const [visibility,setVisibility]=useState("hidden");
+    const [text,setText]=useState("");
+
+    function setFilter(){
+        dispatch(changeFilterState(text));
+    }
+
+    function setUserVisibility(){
+        if(visibility=="hidden")
+            {
+                setVisibility("block")
+            }
+        else 
+        setVisibility("hidden");
+    }
+
+    function setNav(){
+        dispatch(changeState());
+    }
+
+    let UserName="Vikas Yadav";
+    let email="email";
+    return (<>
+
+    <header className="flex justify-center items-center m-[10px]">
+    <div className="flex justify-start items-center w-[15%]">
+        <div className="w-[40px] min-w-[40px]" onClick={setNav}>
+            <img src="/UI/hamburger.png" alt="menu" className="w-[40px] " />
+        </div>
+        <div className="hidden sm:flex ml-6 justify-center items-center  ">
+            <img src="/UI/youtubeLogo.png" alt="" className=" w-[20px] sm:w-[30px] md:w-[40px]"/>
+            <h1 className="flex justify-center items-center text-[15px] md:text-[25px]  h-[40px]">YouTube</h1>
+        </div>
+    </div>
+    <div className="w-[60%] sm:w-[70%] flex justify-center content-center ">
+        <div className="w-[100%] flex justify-center content-center ">
+            <input type="text" className="bg-black border border-white w-[150px] sm:w-[50%] h-[40px] rounded-l-[50px] p-4" onChange={(e)=>{
+                setText(e.target.value);
+            }}/>
+            <button onClick={setFilter} className="border border-white bg-slate-500 w-[50px] h-[40px]  flex justify-center content-center rounded-r-[50px] ">
+                <img src="/UI/search.png" alt="search" className="w-[35px] " />
+            </button>
+        </div>
+    </div>
+    <div className="w-[15%] flex justify-end items-center">
+        <div className=" flex justify-center items-center border p-[2px] rounded-r-[30px] rounded-l-[30px] ">
+            <img src="/UI/user.png" alt="" className="h-[40px]" /> 
+            <div className="flex justify-center items-center">Sign In</div>
+        </div>
+
+        <div className="flex justify-center items-center border border-white rounded-full" onClick={setUserVisibility}>
+            <img src="/UI/loggedUser.png" alt="" className="w-[40px]" />
+        </div>
+        <div className={`${visibility} absolute border bg-black border-white top-[60px] p-[10px] rounded-md gap-3 `}>
+            <div className="flex flex-col justify-center items-center">
+                <div className="flex  justify-center items-center">
+                    <img src="/UI/loggedUser.png" alt="userImage" className="w-[40px]"/> 
+                    <div>
+                        <div>{UserName}</div>
+                        <div>{email}</div>
+                     </div>
+                </div>
+                
+            </div>
+            <div className="border h-[1px]"></div>
+            <div className="flex justify-start items-center">
+               <img src="" alt="" /> view your channel
+            </div>
+            <div className="border h-[1px] w-[100%]"></div>
+            <div className="flex justify-start items-center">
+               <img src="/UI/googleaccounts.png" alt="" className="w-[20px]"/> Google Account
+            </div>
+            <div className="border h-[1px]"></div>
+            <div className="flex justify-start items-center">
+               <img src="/UI/accounts.png" alt="" className="w-[20px]"  /> Switch Account
+            </div>
+            <div className="border h-[1px]"></div>
+            <div className="flex justify-start items-center">
+                <img src="/UI/studio.png" alt=""className="w-[20px]" /> Youtube Studio
+            </div>
+            <div className="border h-[1px]"></div>
+            <div className="flex justify-start items-center">
+                <img src="/UI/logout.png" alt=""  className="w-[20px]"/>  Logout
+            </div>
+        </div>
+    </div>
+    </header>
+    
+    </>);
+}
