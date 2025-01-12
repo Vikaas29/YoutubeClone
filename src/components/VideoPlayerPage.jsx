@@ -52,10 +52,12 @@ export function VideoPlayerPage(){
                 <iframe className=" border border-white rounded-md w-[80%] h-[60vw] lg:w-[80%] lg:h-[70vh]" src={`${videoData.url}?autoplay=1&cc_load_policy=1`} allowfullscreen></iframe>
                 <div className="flex flex-col justify-start items-start w-[80%] m-[20px]">
                     <div className="text-2xl">{videoData.title}</div>
-                    <div className="m-[10px] flex flex-col lg:flex-row">
+                    <div className="m-[10px] flex flex-col-reverse lg:flex-row">
                         <div className="flex justify-start items-center lg:w-[50%]">
-                            <img src="/UI/user.png" alt="" className="w-[40px]" />
-                            <div>Vikas Yadav</div>
+                        <div onClick={()=>{navigate("/mainadmin")}} className=" cursor-pointer rounded-[500px] overflow-hidden w-[40px] h-[40px] mr-[10px]">
+                    <img src="/UI/mainadmin.jpg" alt="" className="w-[40px] h-[40px]" />
+                </div>
+                            <div onClick={()=>{navigate("/mainadmin")}} className="text-xl font-bold cursor-pointer">Vikas Yadav</div>
                             <div className="ml-[40px] border border-white bg-white p-[5px] rounded-[50px] font-semibold text-black">Subscribe</div>
                         </div>
                         <div className="m-[10px] lg:w-[50%] flex gap-[20px] lg:justify-end lg:items-end">

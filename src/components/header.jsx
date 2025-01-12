@@ -81,7 +81,7 @@ export function Header(){
             </div>
             <div className="border h-[1px]"></div>
             <div className="flex justify-start items-center">
-               <img src="" alt="" /> view your channel
+                <span onClick={()=>{navigate("/userpage"); setUserVisibility()}} className="cursor-pointer text-blue-700">view your channel</span>
             </div>
             <div className="border h-[1px] w-[100%]"></div>
             <div className="flex justify-start items-center">
@@ -96,7 +96,7 @@ export function Header(){
                 <img src="/UI/studio.png" alt=""className="w-[20px]" /> Youtube Studio
             </div>
             <div className="border h-[1px]"></div>
-            <div onClick={()=>{localStorage.clear(); navigate("/")}} className="cursor-pointer flex justify-start items-center">
+            <div onClick={()=>{localStorage.clear(); navigate("/")}} className="cursor-pointer flex justify-start items-center text-red-600">
                 <img src="/UI/logout.png" alt=""  className="w-[20px]"/>  Logout
             </div>
         </div> </>)}
