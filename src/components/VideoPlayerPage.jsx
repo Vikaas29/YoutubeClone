@@ -33,6 +33,15 @@ export function VideoPlayerPage(){
             console.log(videoData);
     }
 
+    if(!data){
+        return (<>
+        <Header></Header>
+        <Navigation></Navigation>
+       <div className="w-[100%] h-[100vh] flex justify-center items-center">
+       <img src="/UI/loading.png" alt="" className="loading" />
+       </div>
+        </>)
+    }
     
     if(data)
     return (<>

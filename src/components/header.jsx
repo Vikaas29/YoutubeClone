@@ -5,8 +5,10 @@ import { Outlet } from 'react-router-dom';
 import { useDispatch } from "react-redux";
 import { changeState } from "../utils/NavBarSlice.js";
 import { changeFilterState } from "../utils/FilterSlice.js";
+import { useNavigate } from "react-router-dom";
 
 export function Header(){
+    const navigate=useNavigate();
     const dispatch=useDispatch();
 
     const [visibility,setVisibility]=useState("hidden");
@@ -38,7 +40,7 @@ export function Header(){
         <div className="w-[40px] min-w-[40px]" onClick={setNav}>
             <img src="/UI/hamburger.png" alt="menu" className="w-[40px] " />
         </div>
-        <div className="hidden sm:flex ml-6 justify-center items-center  ">
+        <div  onClick={()=>{navigate("/")}} className="hidden sm:flex ml-6 justify-center items-center cursor-pointer  ">
             <img src="/UI/youtubeLogo.png" alt="" className=" w-[20px] sm:w-[30px] md:w-[40px]"/>
             <h1 className="flex justify-center items-center text-[15px] md:text-[25px]  h-[40px]">YouTube</h1>
         </div>
@@ -47,8 +49,8 @@ export function Header(){
         <div className="w-[100%] flex justify-center content-center ">
             <input type="text" className="bg-black border border-white w-[150px] sm:w-[50%] h-[40px] rounded-l-[50px] p-4" onChange={(e)=>{
                 setText(e.target.value);
-            }}/>
-            <button onClick={setFilter} className="border border-white bg-slate-500 w-[50px] h-[40px]  flex justify-center content-center rounded-r-[50px] ">
+            }} placeholder="Search"/>
+            <button onClick={()=>{setFilter(); navigate("/")} } className="hover:bg-gray-700 border border-white bg-slate-500 w-[50px] h-[40px]  flex justify-center content-center rounded-r-[50px] ">
                 <img src="/UI/search.png" alt="search" className="w-[35px] " />
             </button>
         </div>

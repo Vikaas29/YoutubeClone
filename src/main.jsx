@@ -8,6 +8,7 @@ import { LandingPage } from './components/LandingPage.jsx';
 import { SignUp } from './components/SignUp.jsx';
 import { Login } from './components/Login.jsx';
 import { VideoPlayerPage } from './components/VideoPlayerPage.jsx';
+import { AdminPage } from './components/AdminPage.jsx';
 
 
 const appRouter=createBrowserRouter([
@@ -30,7 +31,12 @@ const appRouter=createBrowserRouter([
       {
         path:"/video/:id",
         element:<VideoPlayerPage></VideoPlayerPage>
+      },
+      {
+        path:"/mainadmin",
+        element:<AdminPage></AdminPage>
       }
+
     ]
     }
 ])

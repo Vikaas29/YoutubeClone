@@ -1,5 +1,8 @@
+import { useNavigate } from "react-router-dom";
+
 export function SideVideoBar(props){
 
+    const navigate=useNavigate();
     const e=props.data;
 
 return (<>
@@ -10,7 +13,7 @@ return (<>
                 <div className="cursor-pointer font-bold" onClick={()=>{navigate(`/video/${e.videoId}`)}}>{e.title}</div>
                 <div className="flex flex-col justify-start items-start font-semibold text-gray-400">
                     
-                    <div>VIKAS YADAV</div>
+                    <div onClick={()=>{navigate("/mainadmin")}} className="cursor-pointer">VIKAS YADAV</div>
                     
                     <div className="flex">
                         <div>{e.views} views</div>

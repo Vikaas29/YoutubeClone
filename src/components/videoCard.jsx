@@ -12,8 +12,10 @@ export function VideoCard(props){
             <div className="cursor-pointer" onClick={()=>{navigate(`/video/${props.d.videoId}`)}}>{props.d.title}</div>
 
             <div className="flex justify-start items-center">
-                <img src="/UI/user.png" alt="" className="w-[30px]"/>
-                <div>VIKAS YADAV</div>
+                <div onClick={()=>{navigate("/mainadmin")}} className=" cursor-pointer rounded-[500px] overflow-hidden w-[30px] h-[30px] mr-[10px]">
+                    <img src="/UI/mainadmin.jpg" alt="" className="w-[30px] h-[30px]" />
+                </div>
+                <div onClick={()=>{navigate("/mainadmin")}} className="cursor-pointer">VIKAS YADAV</div>
                 <pre>   </pre>
                 <div>{props.d.views} views</div>
                 <pre>   </pre>
