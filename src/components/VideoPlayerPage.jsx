@@ -30,7 +30,6 @@ export function VideoPlayerPage(){
 
     if(data){
         videoData=data.find(e=>e.videoId==id);
-            console.log(videoData);
     }
 
     if(!data){

@@ -8,6 +8,8 @@ import { changeFilterState } from "../utils/FilterSlice.js";
 import { useNavigate } from "react-router-dom";
 
 export function Header(){
+    const userName= localStorage.getItem("userName");
+    const email=localStorage.getItem("email");
     const navigate=useNavigate();
     const dispatch=useDispatch();
 
@@ -31,8 +33,6 @@ export function Header(){
         dispatch(changeState());
     }
 
-    let UserName="Vikas Yadav";
-    let email="email";
     return (<>
 
     <header className="flex justify-center items-center m-[10px]">
@@ -56,20 +56,24 @@ export function Header(){
         </div>
     </div>
     <div className="w-[15%] flex justify-end items-center">
-        <div className=" flex justify-center items-center border p-[2px] rounded-r-[30px] rounded-l-[30px] ">
+        
+        { !userName && (<div onClick={()=>{navigate("/login")}} className=" cursor-pointer flex justify-center items-center  p-[2px] w-[100px] ">
             <img src="/UI/user.png" alt="" className="h-[40px]" /> 
-            <div className="flex justify-center items-center">Sign In</div>
-        </div>
+            <div className="flex justify-center items-center ">Sign In</div>
+        </div>)}
 
-        <div className="flex justify-center items-center border border-white rounded-full" onClick={setUserVisibility}>
+        
+
+        {userName && (<><div className="flex justify-center items-center border border-white rounded-full" onClick={setUserVisibility}>
             <img src="/UI/loggedUser.png" alt="" className="w-[40px]" />
         </div>
+
         <div className={`${visibility} absolute border bg-black border-white top-[60px] p-[10px] rounded-md gap-3 `}>
             <div className="flex flex-col justify-center items-center">
                 <div className="flex  justify-center items-center">
                     <img src="/UI/loggedUser.png" alt="userImage" className="w-[40px]"/> 
                     <div>
-                        <div>{UserName}</div>
+                        <div>{userName}</div>
                         <div>{email}</div>
                      </div>
                 </div>
@@ -92,10 +96,10 @@ export function Header(){
                 <img src="/UI/studio.png" alt=""className="w-[20px]" /> Youtube Studio
             </div>
             <div className="border h-[1px]"></div>
-            <div className="flex justify-start items-center">
+            <div onClick={()=>{localStorage.clear(); navigate("/")}} className="cursor-pointer flex justify-start items-center">
                 <img src="/UI/logout.png" alt=""  className="w-[20px]"/>  Logout
             </div>
-        </div>
+        </div> </>)}
     </div>
     </header>
     

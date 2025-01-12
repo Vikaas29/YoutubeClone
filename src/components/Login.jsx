@@ -1,5 +1,7 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom";
+import { Header } from "./header";
+import { Navigation } from "./navigationMenu";
 
 export function Login(){
 
@@ -53,9 +55,9 @@ export function Login(){
     }
 
     return (<>
-    <div className="flex justify-start items-center cursor-pointer w-[70px] m-[10px]" onClick={()=>{navigate("/")}}>
-    <img src="/UI/home.png" alt="" className="w-[40px]" />Home
-    </div>
+    <Header></Header>
+    <Navigation></Navigation>
+    
     <div className="w-[100%] h-[100vh] flex justify-center items-center">
         <form action="" className=" border border-white rounded-lg w-[50%] p-[5%] flex flex-col gap-10 justify-center items-center">
             <input type="email" onChange={(e)=>{setEmail(e.target.value)}} placeholder="Email" className="w-[70%] text-xl p-[5px] rounded-lg text-black" />

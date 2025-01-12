@@ -18,8 +18,6 @@ export function VideoCardHolder(){
         retrieve();
     },[]);
 
-    console.log(data);
-
 
     if(!data){
         return (<>

@@ -41,6 +41,7 @@ export function AdminPage(){
                 <div className="flex flex-col justify-center items-center">
                     <div className="text-3xl font-semibold">Vikas Yadav</div>
                     <div className="font-bold text-gray-400">1k Subs</div>
+                    <div className="border p-2 rounded-r-[50px] rounded-l-[50px] bg-gray-600 font-bold text-l cursor-pointer m-2">Subscribe</div>
                 </div>
             </div>
             <div className="border "></div>

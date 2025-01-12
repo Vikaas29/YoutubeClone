@@ -8,7 +8,6 @@ export function Navigation(){
     const navigate=useNavigate();
 
     const Nav=useSelector((store)=>store.NavBar.value);
-    console.log(Nav)
 
     // console.log(useOutletContext);
     // const {navVisibility,videoFilter}=useOutletContext();
