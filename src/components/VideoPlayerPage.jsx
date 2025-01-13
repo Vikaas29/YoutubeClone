@@ -6,6 +6,7 @@ import { SideVideoBar } from "./SideVideoBar";
 import { Header } from "./header";
 import { Navigation } from "./navigationMenu";
 import { LikeDislike } from "./LikeDislike";
+import { Comments } from "./Comments";
 
 export function VideoPlayerPage(){
     const navigate=useNavigate();
@@ -49,7 +50,7 @@ export function VideoPlayerPage(){
     <div className="flex flex-col lg:flex-row">
         <div className="w-[100vw] lg:w-[70vw] ">
             <div className="videoPart flex flex-col justify-center items-center m-[2%] w-[100%]">
-                <iframe className=" border border-white rounded-md w-[80%] h-[60vw] lg:w-[80%] lg:h-[70vh]" src={`${videoData.url}?autoplay=1&cc_load_policy=1`} allowfullscreen></iframe>
+                <iframe className=" border border-white rounded-md w-[80%] h-[60vw] lg:w-[80%] lg:h-[70vh]" src={`${videoData.url}?autoplay=1&cc_load_policy=1`} allowFullScreen></iframe>
                 <div className="flex flex-col justify-start items-start w-[80%] m-[20px]">
                     <div className="text-2xl">{videoData.title}</div>
                     <div className="m-[10px] flex flex-col-reverse lg:flex-row">
@@ -70,7 +71,7 @@ export function VideoPlayerPage(){
                 </div>
             </div>
             <div className="commentPart w-[100%]">
-
+                <Comments id={videoData.videoId}></Comments>
             </div>
 
         </div>
