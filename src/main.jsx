@@ -10,6 +10,7 @@ import { Login } from './components/Login.jsx';
 import { VideoPlayerPage } from './components/VideoPlayerPage.jsx';
 import { AdminPage } from './components/AdminPage.jsx';
 import { UserPage } from './components/UserPage.jsx';
+import { CreateChannel } from './components/CreateChannel.jsx';
 
 
 const appRouter=createBrowserRouter([
@@ -40,6 +41,10 @@ const appRouter=createBrowserRouter([
       {
         path:"/userpage",
         element:<UserPage></UserPage>
+      },
+      {
+        path:"/createchannel",
+        element:<CreateChannel></CreateChannel>
       }
 
     ]

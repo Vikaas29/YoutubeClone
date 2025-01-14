@@ -53,12 +53,12 @@ export function OneComment(prop){
         <div>{e.userName}</div>
     </div>
     {!isEditing &&<div className="text-black">{e.commentData}</div>}
-    {isEditing && <input type="text" id="edit" value={e.commentData} onChange={(e)=>{setText(e.target.value)}} className="text-black rounded-lg p-[2px]" />}
+    {isEditing && <input type="text" id="edit" defaultValue={text} onBlur={(e)=>{setText(e.target.value);handleSaveEdit()}} className="text-black rounded-lg p-[2px]" />}
     </div>
     {email!=e.userEmail && <div className="right-5 text-gray-800 ">a while ago</div>}
     {email==e.userEmail && <div>
         {!isEditing && <div className="cursor-pointer text-purple-700 font-semibold" onClick={handleEdit}>Edit</div>}
-        {isEditing && <div className="cursor-pointer text-purple-700 font-semibold" onClick={handleSaveEdit}>Save</div>}
+        {isEditing && <div className="cursor-pointer text-purple-700 font-semibold" onClick={()=>{handleSaveEdit()}}>Save</div>}
         <div onClick={()=>{handleDelete(e._id)}} className="cursor-pointer text-red-700 font-semibold">Delete</div>
     </div>}
     

@@ -10,6 +10,8 @@ import { useNavigate } from "react-router-dom";
 export function Header(){
     const userName= localStorage.getItem("userName");
     const email=localStorage.getItem("email");
+    const channelName=localStorage.getItem("channelName")
+
     const navigate=useNavigate();
     const dispatch=useDispatch();
 
@@ -81,7 +83,8 @@ export function Header(){
             </div>
             <div className="border h-[1px]"></div>
             <div className="flex justify-start items-center">
-                <span onClick={()=>{navigate("/userpage"); setUserVisibility()}} className="cursor-pointer text-blue-700">view your channel</span>
+                {channelName=="" && (<span onClick={()=>{navigate("/createchannel"); setUserVisibility()}} className="cursor-pointer text-red-600">Create channel</span>)}
+                {channelName!="" && (<span onClick={()=>{navigate("/userpage"); setUserVisibility()}} className="cursor-pointer text-blue-700">view your channel</span>)}
             </div>
             <div className="border h-[1px] w-[100%]"></div>
             <div className="flex justify-start items-center">

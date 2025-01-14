@@ -41,6 +41,7 @@ export function Login(){
             localStorage.setItem("userName",message.User.userName);
             localStorage.setItem("email",message.User.email);
             localStorage.setItem("token",message.token);
+            localStorage.setItem("channelName",message.User.channelName);
         }
         alert(message.message);
 
