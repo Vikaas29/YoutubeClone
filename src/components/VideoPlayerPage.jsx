@@ -55,10 +55,14 @@ export function VideoPlayerPage(){
                     <div className="text-2xl">{videoData.title}</div>
                     <div className="m-[10px] flex flex-col-reverse lg:flex-row">
                         <div className="flex justify-start items-center lg:w-[50%]">
-                        <div onClick={()=>{navigate("/mainadmin")}} className=" cursor-pointer rounded-[500px] overflow-hidden w-[40px] h-[40px] mr-[10px]">
-                    <img src="/UI/mainadmin.jpg" alt="" className="w-[40px] h-[40px]" />
-                </div>
-                            <div onClick={()=>{navigate("/mainadmin")}} className="text-xl font-bold cursor-pointer">Vikas Yadav</div>
+                        {!videoData.owner && (<div onClick={()=>{navigate("/mainadmin")}} className=" cursor-pointer rounded-[500px] overflow-hidden w-[40px] h-[40px] mr-[10px]">
+                         <img src="/UI/mainadmin.jpg" alt="" className="w-[40px] h-[40px]" />
+                        </div>)}
+                        {videoData.owner && (<div onClick={()=>{navigate("/mainadmin")}} className=" cursor-pointer rounded-[500px] overflow-hidden w-[40px] h-[40px] mr-[10px]">
+                         <img src="/UI/loggedUser.png" alt="" className="w-[40px] h-[40px]" />
+                        </div>)}
+                            {!videoData.owner && (<div onClick={()=>{navigate("/mainadmin")}} className="text-xl font-bold cursor-pointer">Vikas Yadav</div>)}
+                            {videoData.owner && (<div onClick={()=>{navigate("/mainadmin")}} className="text-xl font-bold cursor-pointer">{videoData.owner}</div>)}
                             <div className="ml-[40px] border border-white bg-white p-[5px] rounded-[50px] font-semibold text-black">Subscribe</div>
                         </div>
                         <div className="m-[10px] lg:w-[50%] flex gap-[20px] lg:justify-end lg:items-end">

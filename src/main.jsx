@@ -11,6 +11,7 @@ import { VideoPlayerPage } from './components/VideoPlayerPage.jsx';
 import { AdminPage } from './components/AdminPage.jsx';
 import { UserPage } from './components/UserPage.jsx';
 import { CreateChannel } from './components/CreateChannel.jsx';
+import { AddVideo } from './components/AddVideo.jsx';
 
 
 const appRouter=createBrowserRouter([
@@ -45,6 +46,10 @@ const appRouter=createBrowserRouter([
       {
         path:"/createchannel",
         element:<CreateChannel></CreateChannel>
+      },
+      {
+        path:"/addvideo",
+        element:<AddVideo></AddVideo>
       }
 
     ]

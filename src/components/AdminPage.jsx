@@ -16,7 +16,6 @@ export function AdminPage(){
         retrieve();
     },[]);
 
-    console.log(data);
 
 
     if(!data){

@@ -36,7 +36,7 @@ export function Login(){
         });
 
         const message=await saveUser.json();
-        console.log(message)
+        
         if(message.User){
             localStorage.setItem("userName",message.User.userName);
             localStorage.setItem("email",message.User.email);

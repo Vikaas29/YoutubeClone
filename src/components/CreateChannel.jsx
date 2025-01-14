@@ -29,14 +29,13 @@ export function CreateChannel(){
         });
 
         const message=await saveUser.json();
-        console.log(message);
 
 
         if(message.message=="Channel created")
         {
             localStorage.setItem("channelName",name);
             setTimeout(()=>{
-            navigate("/");
+            navigate("/userpage");
         },1000);
     }
         
