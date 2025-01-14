@@ -48,7 +48,7 @@ export function VideoPlayerPage(){
     <Header></Header>
     <Navigation></Navigation>
     <div className="flex flex-col lg:flex-row">
-        <div className="w-[100vw] lg:w-[70vw] ">
+        <div className="flex flex-col justify-start items-center w-[100vw] lg:w-[70vw] ">
             <div className="videoPart flex flex-col justify-center items-center m-[2%] w-[100%]">
                 <iframe className=" border border-white rounded-md w-[80%] h-[60vw] lg:w-[80%] lg:h-[70vh]" src={`${videoData.url}?autoplay=1&cc_load_policy=1`} allowFullScreen></iframe>
                 <div className="flex flex-col justify-start items-start w-[80%] m-[20px]">
@@ -69,6 +69,9 @@ export function VideoPlayerPage(){
 
                     </div>
                 </div>
+            </div>
+            <div className=" border border-gray-600 bg-gray-600 p-5 rounded-lg m-[2%] w-[80%]">
+                {videoData.description}
             </div>
             <div className="commentPart w-[100%]">
                 <Comments id={videoData.videoId}></Comments>

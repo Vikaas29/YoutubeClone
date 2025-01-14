@@ -1,8 +1,10 @@
 import { Input } from "postcss";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 export function OneComment(prop){
+
+    
 
     const {setReload,e,reload}=prop.data;
     const userName= localStorage.getItem("userName");
@@ -10,6 +12,14 @@ export function OneComment(prop){
 
     const [isEditing, setIsEditing] = useState(false);
     const [text, setText] = useState(e.commentData);
+    const [initialLoad,setInitialLoad]=useState(true);
+
+    useEffect(()=>{
+        if(initialLoad==false)
+        {handleSaveEdit()}
+        else
+        setInitialLoad(false)
+    },[text])
 
     async function handleDelete(commentId){
         const deleteUser=await fetch("https://youtube-backend-nexn.onrender.com/comment",{
@@ -31,7 +41,7 @@ export function OneComment(prop){
     async function handleSaveEdit(){
         if(text==""){alert("comment cant be empty"); return;}
 
-        const deleteUser=await fetch("https://youtube-backend-nexn.onrender.com/comment",{
+        const updateComment=await fetch("https://youtube-backend-nexn.onrender.com/comment",{
             method:"PUT",
             headers:{
                 "Content-Type":"application/json"
@@ -41,9 +51,11 @@ export function OneComment(prop){
                 "id":e._id
             })
         });
-        const message=await deleteUser.json();
-        setIsEditing(false);
-        setReload(!reload);
+        const message=await updateComment.json();
+       
+        if(message.message=="comment updated")
+        {setIsEditing(false);
+        setReload(!reload);}
 
     }
     return(<><div key={Math.random()} className=" relative flex gap-5 border border-gray-400 bg-gray-400 justify-start items-center w-[60%] rounded-xl">
@@ -53,7 +65,7 @@ export function OneComment(prop){
         <div>{e.userName}</div>
     </div>
     {!isEditing &&<div className="text-black">{e.commentData}</div>}
-    {isEditing && <input type="text" id="edit" defaultValue={text} onBlur={(e)=>{setText(e.target.value);handleSaveEdit()}} className="text-black rounded-lg p-[2px]" />}
+    {isEditing && <input type="text" id="edit" defaultValue={text} onBlur={async(e)=>{await setText(e.target.value);}} className="text-black rounded-lg p-[2px]" />}
     </div>
     {email!=e.userEmail && <div className="right-5 text-gray-800 ">a while ago</div>}
     {email==e.userEmail && <div>
