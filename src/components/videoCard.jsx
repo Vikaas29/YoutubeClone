@@ -6,7 +6,11 @@ export function VideoCard(props){
     const navigate=useNavigate();
 
     async function handleVideoDelete(){
-        const deleteUser=await fetch("https://youtube-backend-nexn.onrender.com/deletevideo",{
+
+        const conf=confirm("are you sure you want to DELETE the video");
+
+        if(conf==true)
+        {const deleteUser=await fetch("https://youtube-backend-nexn.onrender.com/deletevideo",{
             method:"DELETE",
             headers:{
                 "Content-Type":"application/json"
@@ -16,13 +20,13 @@ export function VideoCard(props){
             })
         });
         const message=await deleteUser.json();
-        props.setReload(!props.reload);
+        props.setReload(!props.reload);}
     }
     
     return(<>
 
         <div className="w-[400px] m-[30px]">
-            <img src={`${props.d.thumbnail}`} alt="" className="w-[400px] cursor-pointer" onClick={()=>{navigate(`/video/${props.d.videoId}`)}}/>
+            <img src={props.d.thumbnail} alt="" className="w-[400px] cursor-pointer" onClick={()=>{navigate(`/video/${props.d.videoId}`)}}/>
 
             <div className="cursor-pointer" onClick={()=>{navigate(`/video/${props.d.videoId}`)}}>{props.d.title}</div>
 

@@ -7,7 +7,7 @@ export function SideVideoBar(props){
 
 return (<>
         <div  className="w-[100%] m-[30px] flex">
-            <img src={`/${e.thumbnail}`} alt="" className="w-[50%] cursor-pointer rounded-md" onClick={()=>{navigate(`/video/${e.videoId}`)}}/>
+            <img src={e.thumbnail} alt="" className="w-[50%] cursor-pointer rounded-md" onClick={()=>{navigate(`/video/${e.videoId}`)}}/>
 
             <div className="flex flex-col justify-center items-start text-sm m-[10px] gap-[10px]">
                 <div className="cursor-pointer font-bold" onClick={()=>{navigate(`/video/${e.videoId}`)}}>{e.title}</div>

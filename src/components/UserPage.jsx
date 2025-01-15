@@ -19,7 +19,7 @@ export function UserPage(){
     async function handleDelete() {
         const choice=confirm("are you sure you want to delete the channel");
 
-        console.log(choice)
+       
 
         if(choice==true)
         {
@@ -60,7 +60,6 @@ export function UserPage(){
         retrieve();
     },[reload]);
 
-    console.log(data);
 
 
     if(!data){
@@ -85,10 +84,10 @@ export function UserPage(){
                 <div className="flex flex-col justify-center items-start ">
                     <div className="text-3xl font-semibold ml-[20px]">{userName}</div>
                     <div className="font-bold text-gray-400 ml-[20px]">0 Subs</div>
-                    <div className="flex  gap-5">
-                    <div className="border p-2 rounded-r-[50px] rounded-l-[50px] bg-gray-600 font-bold text-l cursor-pointer m-2">Subscribe</div>
-                    <div onClick={handleAddVideo} className=" border p-2 rounded-r-[50px] rounded-l-[50px] bg-cyan-600 font-bold text-l cursor-pointer m-2 w-[100px]">Add Video</div>
-                    <div onClick={handleDelete} className="border p-2 rounded-r-[50px] rounded-l-[50px] bg-red-600 font-bold text-l cursor-pointer m-2">Delete Channel</div>
+                    <div className="flex flex-col md:flex-row md:gap-5">
+                    <div className=" text-center border p-2 rounded-r-[50px] rounded-l-[50px] bg-gray-600 font-bold text-l cursor-pointer m-2">Subscribe</div>
+                    <div onClick={handleAddVideo} className="text-center border p-2 rounded-r-[50px] rounded-l-[50px] bg-cyan-600 font-bold text-l cursor-pointer m-2 w-[100px]">Add Video</div>
+                    <div onClick={handleDelete} className="text-center border p-2 rounded-r-[50px] rounded-l-[50px] bg-red-600 font-bold text-l cursor-pointer m-2">Delete Channel</div>
                     </div>
                 </div>
             </div>
