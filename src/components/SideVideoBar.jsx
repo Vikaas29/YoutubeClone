@@ -14,7 +14,7 @@ return (<>
                 <div className="flex flex-col justify-start items-start font-semibold text-gray-400">
                     
                     {!e.owner && (<div onClick={()=>{navigate("/mainadmin")}} className="cursor-pointer">VIKAS YADAV</div>)}
-                    {e.owner && (<div onClick={()=>{navigate("/mainadmin")}} className="cursor-pointer">{e.owner}</div>)}
+                    {e.owner && (<div className="cursor-pointer">{e.owner}</div>)}
                     
                     <div className="flex">
                         <div>{e.views} views</div>

@@ -32,7 +32,7 @@ export function VideoCard(props){
                     {props.d.owner &&(<img src="/UI/loggedUser.png" alt="" className="w-[30px] h-[30px]" />)}
                 </div>
                 {!props.d.owner && (<div onClick={()=>{navigate("/mainadmin")}} className="cursor-pointer">VIKAS YADAV</div>)}
-                {props.d.owner && (<div onClick={()=>{navigate("/userpage")}} className="cursor-pointer">{props.d.owner}</div>)}
+                {props.d.owner && (<div  className="cursor-pointer">{props.d.owner}</div>)}
                 <pre>   </pre>
                 <div>{props.d.views} views</div>
                 <pre>   </pre>

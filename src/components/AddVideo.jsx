@@ -67,9 +67,7 @@ export function AddVideo(){
             <input type="text" onChange={(e)=>{setGenre(e.target.value)}} placeholder="Genre" className="w-[70%] text-xl p-[5px] rounded-lg text-black"/>
 
             <button type="submit" onClick={(e)=>{submit(e)}} className="border border-red-600 bg-red-600 font-bold w-[70%] text-xl p-[5px] rounded-lg">Submit</button>
-            <div>
-             Have a account? <span className="text-red-600 font-bold cursor-pointer" onClick={()=>{navigate("/login")}}>Login here</span>
-            </div>
+           
         </form>
 
         
