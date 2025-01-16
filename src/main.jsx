@@ -3,16 +3,17 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 import { createBrowserRouter,RouterProvider } from 'react-router-dom';
-import { Header } from './components/header.jsx';
-import { LandingPage } from './components/LandingPage.jsx';
-import { SignUp } from './components/SignUp.jsx';
-import { Login } from './components/Login.jsx';
-import { VideoPlayerPage } from './components/VideoPlayerPage.jsx';
-import { AdminPage } from './components/AdminPage.jsx';
-import { UserPage } from './components/UserPage.jsx';
-import { CreateChannel } from './components/CreateChannel.jsx';
-import { AddVideo } from './components/AddVideo.jsx';
+import { Error } from './components/Error.jsx';
+import { lazy,Suspense } from 'react'
 
+let LandingPage= lazy(()=> import('./components/LandingPage.jsx') );
+let SignUp= lazy(()=> import('./components/SignUp.jsx') );
+let Login= lazy(()=> import('./components/Login.jsx') );
+let VideoPlayerPage=lazy(()=> import('./components/VideoPlayerPage.jsx') );
+let AdminPage=lazy(()=> import('./components/AdminPage.jsx') );
+let UserPage=lazy(()=>import('./components/UserPage.jsx'));
+let CreateChannel=lazy(()=>import('./components/CreateChannel.jsx'));
+let AddVideo=lazy(()=>import('./components/AddVideo.jsx'));
 
 const appRouter=createBrowserRouter([
     {
@@ -21,38 +22,55 @@ const appRouter=createBrowserRouter([
     children : [
       {
         path:"/",
-        element:<LandingPage></LandingPage>,
+        element:<Suspense fallback={<div className="w-[100%] h-[100vh] flex justify-center items-center">
+          <img src="/UI/loading.png" alt="" className="loading" />
+          </div>}><LandingPage></LandingPage></Suspense>,
       },
       {
         path:"/signup",
-        element:<SignUp></SignUp>
+        element:<Suspense fallback={<div className="w-[100%] h-[100vh] flex justify-center items-center">
+          <img src="/UI/loading.png" alt="" className="loading" />
+          </div>}><SignUp></SignUp></Suspense>
       },
       {
         path:"/login",
-        element:<Login></Login>
+        element:<Suspense fallback={<div className="w-[100%] h-[100vh] flex justify-center items-center">
+          <img src="/UI/loading.png" alt="" className="loading" />
+          </div>}><Login></Login></Suspense>
       },
       {
         path:"/video/:id",
-        element:<VideoPlayerPage></VideoPlayerPage>
+        element:<Suspense fallback={<div className="w-[100%] h-[100vh] flex justify-center items-center">
+          <img src="/UI/loading.png" alt="" className="loading" />
+          </div>}><VideoPlayerPage></VideoPlayerPage></Suspense>
       },
       {
         path:"/mainadmin",
-        element:<AdminPage></AdminPage>
+        element:<Suspense fallback={<div className="w-[100%] h-[100vh] flex justify-center items-center">
+          <img src="/UI/loading.png" alt="" className="loading" />
+          </div>}><AdminPage></AdminPage></Suspense>
       },
       {
         path:"/userpage",
-        element:<UserPage></UserPage>
+        element:<Suspense fallback={<div className="w-[100%] h-[100vh] flex justify-center items-center">
+          <img src="/UI/loading.png" alt="" className="loading" />
+          </div>}><UserPage></UserPage></Suspense>
       },
       {
         path:"/createchannel",
-        element:<CreateChannel></CreateChannel>
+        element:<Suspense fallback={<div className="w-[100%] h-[100vh] flex justify-center items-center">
+          <img src="/UI/loading.png" alt="" className="loading" />
+          </div>}><CreateChannel></CreateChannel></Suspense>
       },
       {
         path:"/addvideo",
-        element:<AddVideo></AddVideo>
+        element:<Suspense fallback={<div className="w-[100%] h-[100vh] flex justify-center items-center">
+          <img src="/UI/loading.png" alt="" className="loading" />
+          </div>}><AddVideo></AddVideo></Suspense>
       }
 
-    ]
+    ],
+    errorElement:<Error></Error>
     }
 ])
 

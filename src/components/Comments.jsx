@@ -8,6 +8,7 @@ export function Comments(props){
 
     const userName= localStorage.getItem("userName");
     const email=localStorage.getItem("email");
+    const JWT=localStorage.getItem("jwt");
 
     const [comment,setComment]=useState("");
 
@@ -33,7 +34,8 @@ export function Comments(props){
         const saveUser=await fetch("https://youtube-backend-nexn.onrender.com/comment",{
             method:"POST",
             headers:{
-                "Content-Type":"application/json"
+                "Content-Type":"application/json",
+                "authorization": `JWT ${JWT}`
             },
             body: JSON.stringify({
                 "userName":userName,

@@ -42,6 +42,7 @@ export function Login(){
             localStorage.setItem("email",message.User.email);
             localStorage.setItem("token",message.token);
             localStorage.setItem("channelName",message.User.channelName);
+            localStorage.setItem("jwt",message.token);
         }
         alert(message.message);
 
@@ -75,3 +76,5 @@ export function Login(){
     </div>
     </>)
 }
+
+export default Login;

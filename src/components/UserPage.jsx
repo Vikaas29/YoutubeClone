@@ -15,6 +15,7 @@ export function UserPage(){
 
     const userName= localStorage.getItem("channelName");
     const email=localStorage.getItem("email");
+    const JWT=localStorage.getItem("jwt");
 
     async function handleDelete() {
         const choice=confirm("are you sure you want to delete the channel");
@@ -26,7 +27,8 @@ export function UserPage(){
             const saveUser=await fetch("https://youtube-backend-nexn.onrender.com/deletechannel",{
                 method:"PUT",
                 headers:{
-                    "Content-Type":"application/json"
+                    "Content-Type":"application/json",
+                    "authorization": `JWT ${JWT}`
                 },
                 body: JSON.stringify({
                     email:email,
@@ -104,3 +106,5 @@ export function UserPage(){
     </>)
 
 }
+
+export default UserPage;

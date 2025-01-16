@@ -74,3 +74,5 @@ export function AddVideo(){
     </div>
     </>)
 }
+
+export default AddVideo;

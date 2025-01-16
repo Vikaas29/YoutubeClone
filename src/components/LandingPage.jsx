@@ -9,3 +9,5 @@ export function LandingPage(){
     <VideoCardHolder></VideoCardHolder>
     </>)
 }
+
+export default LandingPage;

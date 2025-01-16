@@ -9,6 +9,7 @@ export function OneComment(prop){
     const {setReload,e,reload}=prop.data;
     const userName= localStorage.getItem("userName");
     const email=localStorage.getItem("email");
+    const JWT=localStorage.getItem("jwt");
 
     const [isEditing, setIsEditing] = useState(false);
     const [text, setText] = useState(e.commentData);
@@ -25,7 +26,8 @@ export function OneComment(prop){
         const deleteUser=await fetch("https://youtube-backend-nexn.onrender.com/comment",{
             method:"DELETE",
             headers:{
-                "Content-Type":"application/json"
+                "Content-Type":"application/json",
+                "authorization": `JWT ${JWT}`
             },
             body: JSON.stringify({
                 id:commentId
@@ -44,7 +46,8 @@ export function OneComment(prop){
         const updateComment=await fetch("https://youtube-backend-nexn.onrender.com/comment",{
             method:"PUT",
             headers:{
-                "Content-Type":"application/json"
+                "Content-Type":"application/json",
+                "authorization": `JWT ${JWT}`
             },
             body: JSON.stringify({
                 "commentData":text,

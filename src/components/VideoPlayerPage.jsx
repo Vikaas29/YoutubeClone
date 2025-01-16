@@ -88,3 +88,5 @@ export function VideoPlayerPage(){
     </div>
     </>);
 }
+
+export default VideoPlayerPage;

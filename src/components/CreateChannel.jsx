@@ -8,7 +8,8 @@ export function CreateChannel(){
     const navigate=useNavigate();
 
     const [name,setName]=useState("");
-    const [handle,setHandle]=useState("")
+    const [handle,setHandle]=useState("");
+    const JWT=localStorage.getItem("jwt");
 
     const email=localStorage.getItem("email");
 
@@ -20,7 +21,8 @@ export function CreateChannel(){
         const saveUser=await fetch("https://youtube-backend-nexn.onrender.com/createchannel",{
             method:"PUT",
             headers:{
-                "Content-Type":"application/json"
+                "Content-Type":"application/json",
+                "authorization": `JWT ${JWT}`
             },
             body: JSON.stringify({
                 email:email,
@@ -63,3 +65,5 @@ export function CreateChannel(){
     </div>
     </>)
 }
+
+export default CreateChannel;
