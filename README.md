@@ -1,8 +1,33 @@
-# React + Vite
+YouTube Clone Project
+This repository hosts a fully operational YouTube clone, built using modern web development technologies. It includes features such as video streaming, user authentication, and a commenting system.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+Features
+User Authentication: Secure user login and registration powered by JWT.
+Responsive Design: An adaptive interface styled with Tailwind CSS for seamless user experience across devices.
+Comment System: Complete CRUD functionality for managing comments.
+Dynamic Navigation: Smooth transitions and routing with React Router.
+Backend Integration: A robust server built with Node.js and Express.js.
+Database Management: Efficient data handling using MongoDB.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+Technologies Used
+Frontend:
+React.js
+Tailwind CSS
+Vite
+
+
+Backend:
+Node.js
+Express.js
+MongoDB
+
+Tools:
+Vite for rapid development
+
+
+Links
+GitHub Repository: https://github.com/Vikaas29/YoutubeClone
+Demo Video: 
+Live Demo: https://youtube-clone-ruddy-pi.vercel.app/
