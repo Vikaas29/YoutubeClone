@@ -11,6 +11,7 @@ export function Login(){
     
     const [password,setPassword]=useState();
 
+    // function to hanlde login related actions
     async function login(e){
         e.preventDefault();
 

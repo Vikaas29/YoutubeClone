@@ -7,6 +7,7 @@ export function AdminPage(){
 
     const [data,setData]=useState(null);
 
+    // use effect hook to fetch  video data 
     useEffect(()=>{
         async function retrieve(){
             const response=await fetch("https://youtube-backend-nexn.onrender.com/videos");
@@ -17,7 +18,7 @@ export function AdminPage(){
     },[]);
 
 
-
+    // shimmer effect in case of delay in data fetching
     if(!data){
         return (<>
         <Header></Header>
@@ -47,7 +48,7 @@ export function AdminPage(){
             <div>
                 <div className="m-10 text-2xl">Uploads : </div>
                 <div className="flex flex-wrap justify-center items-center">
-                    {data.map((e)=>{return <VideoCard d={e} key={e._id}></VideoCard>})}
+                    {data.filter(e=>!e.owner).map((e)=>{return <VideoCard d={e} key={e._id}></VideoCard>})}
                 </div>
             </div>
         </div>

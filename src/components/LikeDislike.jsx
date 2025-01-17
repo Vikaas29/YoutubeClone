@@ -4,6 +4,7 @@ export function LikeDislike(props){
     const [dislike,setDisliked]=useState("/UI/dislike.png");
     const [like,setLike]=useState(0);
 
+    // function to handle all actions related to like
     function likeClicked(){
         if(liked=="/UI/like.png"){
             setLiked("/UI/yesLiked.png");
@@ -16,6 +17,8 @@ export function LikeDislike(props){
         }
         
     }
+
+    // function to handle all actions related to dislike
     function dislikeClicked(){
 
         if(dislike=="/UI/dislike.png"){

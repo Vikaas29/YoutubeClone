@@ -13,6 +13,7 @@ export function CreateChannel(){
 
     const email=localStorage.getItem("email");
 
+    // function to handle channel creation
     async function channelCreation(e) {
         e.preventDefault();
 

@@ -18,6 +18,7 @@ export function AddVideo(){
     const owner=localStorage.getItem("channelName");
 
 
+    // function to handle submit video action and verifying the data given by user
     async function submit(e){
         e.preventDefault();
 

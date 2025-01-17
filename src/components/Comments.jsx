@@ -18,6 +18,7 @@ export function Comments(props){
     const id=props.id;
 
     const [data,setData]=useState(null);
+    // use effect to fetch comment data
     useEffect(()=>{
         async function retrieve(){
             const response=await fetch("https://youtube-backend-nexn.onrender.com/comment");
@@ -28,6 +29,7 @@ export function Comments(props){
         retrieve();
     },[reload]);
 
+    // function to handle adding of a comment to videos
     async function handleSubmitComment(){
         if(comment==""){return}
 

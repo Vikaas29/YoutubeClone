@@ -15,6 +15,7 @@ let UserPage=lazy(()=>import('./components/UserPage.jsx'));
 let CreateChannel=lazy(()=>import('./components/CreateChannel.jsx'));
 let AddVideo=lazy(()=>import('./components/AddVideo.jsx'));
 
+// app router including lazy laoding
 const appRouter=createBrowserRouter([
     {
         path:"/",
