@@ -3,7 +3,7 @@ YouTube Clone Project
 This repository hosts a fully operational YouTube clone, built using modern web development technologies. It includes features such as video streaming, user authentication, and a commenting system.
 
 
-Features
+Features:
 
 User Authentication: Secure user login and registration powered by JWT.
 
