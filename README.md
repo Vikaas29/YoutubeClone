@@ -50,6 +50,6 @@ Links
 
 GitHub Repository: https://github.com/Vikaas29/YoutubeClone
 
-Demo Video: 
+Demo Video: https://drive.google.com/file/d/1b6ZjErSu0op20kc-yiBUP-SHs47rVV7W/view?usp=sharing
 
 Live Demo: https://youtube-clone-ruddy-pi.vercel.app/
